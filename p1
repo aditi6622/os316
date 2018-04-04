@@ -12,5 +12,29 @@ for(int i=0;i<n;i++)
 	cout<<"\n";
 	cin>>burst_time[i];
 }
-
+int position,temp,arrival_time[n],process_number[n];
+for(int i=0;i<n;i++)
+{
+	cout<<"enter arrival time for process: "<<i+1;
+	cout<<"\n";
+	cin>>arrival_time[i];
+}
+//sorting burst time in ascending order using selection sort
+  for(int i=0;i<n;i++)
+    {
+        position=i;
+        for(int j=i+1;j<n;j++)
+        {
+            if(burst_time[j]<burst_time[position])
+                pos=j;
+        }
+ 
+        temp=burst_time[i];
+        burst_time[i]=burst_time[position];
+        burst_time[position]=temp;
+ 
+        temp=process_number[i];
+        process_number[i]=process_number[position];
+        process_number[position]=temp;
+    }   
 }
