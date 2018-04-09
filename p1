@@ -43,16 +43,44 @@ burst_time[i]=temp1;
 }
 }
 }
+for(int j=0;j<n;j++)
+{   burst=burst+burst_time[j];
+   min=burst_time[k];
+for(int i=k;i<n;i++)/*main logic*/
+{ min=priority[k];
+clock=burst_time[k];
 waiting_time[0]=0;
-for(int i=1;i<n;i++)
+for(int a=1;a<n;a++)
 {
-sum=sum+burst_time[i-1];
-waiting_time[i]=sum-arrival_time[i];
+sum=sum+burst_time[a-1];
+waiting_time[a]=sum-arrival_time[a]+clock;
 }
-for(int i=0;i<n;i++)
- {
- 	priority[i]=0;
- 	priority[i]=1+waiting_time[i]/burst_time[i];
- }
+for(int b=0;b<n;b++)
+{
+ 	priority[b]=0;
+ 	priority[b]=1+waiting_time[b]/burst_time[b];
+}
+if (burst>=arrival_time[i])
+{
+if(priority[i]<min)
+{
+temp=process_number[k];
+process_number[k]=process_number[i];
+process_number[i]=temp;
+temp=arrival_time[k];
+arrival_time[k]=arrival_time[i];
+arrival_time[i]=temp;
+temp1=burst_time[k];
+burst_time[k]=burst_time[i];
+burst_time[i]=temp1;
+temp=priority[k];
+priority[k]=priority[i];
+priority[i]=temp;
+
+}
+}
+}
+k++;
+}
  
 }
