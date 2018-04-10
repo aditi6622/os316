@@ -82,5 +82,43 @@ priority[i]=temp;
 }
 k++;
 }
- 
+for(int i=0;i<n;i++)
+{
+wsum=wsum+waiting_time[i];
+}
+waiting_avg=wsum/n;
+for(int i=0;i<n;i++)
+{
+turn_temp=turn_temp+burst_time[i];
+turnaround_time[i]=turn_temp-arrival_time[i];
+}
+for(int i=0;i<n;i++)
+{
+tsum=tsum+turnaround_time[i];
+}
+turnaround_avg=tsum/n;
+for(int i=0;i<n;i++)
+{
+response_time[i]=waiting_time[i];
+}
+cout<<"************************";
+cout<<"\n RESULT:-\t\t\t VARIOUS TIMES";
+cout<<"\nprocess\t burst\t arrival\tpriority ";
+for(int i=0;i<n;i++)
+{
+	cout<<"\np"<<process_number[i];
+	cout<<"\t"<<burst_time[i];
+	cout<<"\t"<<arrival_time[i];
+	cout<<"\t\t"<<priority[i];
+}
+printf("\nwaiting time\tturnaround time\tresponce time");
+for(int i=0;i<n;i++)
+{
+	cout<<"\n"<<waiting_time[i];
+	cout<<"\t\t"<<turnaround_time[i];
+	cout<<"\t\t"<<response_time[i];
+}
+cout<<"\nAVERAGE WAITING TIME:"<<waiting_avg;
+cout<<"\nAVERAGE TURN AROUND TIME:"<<turnaround_avg;
+cout<<"\nAVERAGE RESPONSE TIME:"<<waiting_avg;
 }
